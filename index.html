@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Science Protocol: Universal Manifold Interaction</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.16/index.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0f1c;
+            --bg-secondary: #111827;
+            --bg-card: #1f2937;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --accent-gold: #fbbf24;
+            --border-color: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 15, 28, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-github {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .nav-github:hover {
+            background: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 2rem 2rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://image.qwenlm.ai/public_source/92d888d9-2d62-440f-bffb-fd8a22b390a3/10b20d8d9-c275-4aac-9df3-4ac2caeddeeb.png') center/cover no-repeat;
+            opacity: 0.3;
+            filter: blur(2px);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 0.25rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Intro Section */
+        .intro {
+            background: var(--bg-secondary);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-cyan);
+        }
+
+        .intro-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .intro-image {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Neuro Protocol */
+        .phase-number {
+            display: inline-block;
+            background: var(--accent-purple);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Verifiable Systems */
+        .verifiable {
+            background: var(--bg-secondary);
+        }
+
+        .verifiable .card-icon {
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        /* Math Section */
+        .math-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .math-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+
+        .math-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .equation {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 1rem 0;
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .math-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .intro-grid, .math-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Pure Science Protocol</div>
+            <ul class="nav-links">
+                <li><a href="#intro">Overview</a></li>
+                <li><a href="#neuro">Neuro Protocol</a></li>
+                <li><a href="#systems">Verifiable Systems</a></li>
+                <li><a href="#math">Mathematics</a></li>
+            </ul>
+            <a href="https://github.com/hjk-inc/Pure-Science-protocol-universal-mainfold-interaction-" class="nav-github" target="_blank">GitHub Repo</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content fade-in">
+            <div class="hero-badge">UNIFIED SCIENTIFIC FRAMEWORK</div>
+            <h1>Pure Science Protocol:<br>Universal Manifold Interaction</h1>
+            <p>A unified framework bridging neurobiological state control via attractor dynamics with Lyapunov-stable verifiable system governance. Optimizing future outcomes through mathematical rigor.</p>
+            <div class="hero-buttons">
+                <a href="#intro" class="btn-primary">Explore Framework</a>
+                <a href="https://github.com/hjk-inc/Pure-Science-protocol-universal-mainfold-interaction-" class="btn-secondary" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>The Core Synthesis</h2>
+                <p>Merging cognitive neuroscience with systems engineering to create a provably stable architecture for both human consciousness and autonomous AI systems.</p>
+            </div>
+            <div class="intro-grid">
+                <div class="intro-text fade-in">
+                    <h3>Beyond Intention & Verifiable Governance</h3>
+                    <p>The Pure Science Protocol unifies two groundbreaking research pillars. The first explores how sustained mental discipline alters brain dynamics—specifically neural oscillations and synaptic weights—to optimize cognitive processing and steer neural activity toward stable, goal-directed attractor states.</p>
+                    <p>The second establishes the mathematical bedrock for building verifiable, self-correcting systems using Lyapunov stability theory, dynamic correction loops, and immutable boundary ledgers. Together, they form a comprehensive model for influencing outcomes—whether in human cognition or machine intelligence.</p>
+                </div>
+                <div class="intro-image fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/92d888d9-2d62-440f-bffb-fd8a22b390a3/1959b1357-ba22-4035-b2ac-299d52b1771a.png" alt="Dynamic Correction Loop and Boundary Ledger">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neurobiological Protocol -->
+    <section id="neuro">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Neurobiological Protocol</h2>
+                <p>A three-phase biological protocol for influencing future outcomes via entropy reduction, synaptic rewiring, and state coherence.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">🧠</div>
+                    <div class="phase-number">1</div>
+                    <h3>Entropy Reduction (Theta Shifting)</h3>
+                    <p>Lower the brain's overall energy state by shifting neural oscillations from high-frequency Beta waves to low-frequency Theta waves. This reduces sympathetic nervous system arousal and neurochemical noise, creating a permissive environment for neuroplasticity.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">⚡</div>
+                    <div class="phase-number">2</div>
+                    <h3>Anchoring (Hebbian Learning)</h3>
+                    <p>Visualize the desired outcome with intense sensory detail. This activates specific neural ensembles, strengthening synaptic connections via Hebbian learning and Spike-Timing-Dependent Plasticity (STDP), making the pathway more efficient.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🌊</div>
+                    <div class="phase-number">3</div>
+                    <h3>State Coherence (Gamma Synchrony)</h3>
+                    <p>Trigger whole-brain Gamma oscillations (30-100 Hz) to consolidate newly formed neural pathways. This coherent state provides the immense processing power required to navigate complex real-world variables and execute the target outcome.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verifiable Systems -->
+    <section id="systems" class="verifiable">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Verifiable Systems Architecture</h2>
+                <p>Architecting provably stable, self-correcting systems for software engineering and AI alignment.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card fade-in">
+                    <div class="card-icon"></div>
+                    <h3>Boundary Ledger</h3>
+                    <p>An immutable, verifiable record of system states and interactions. Formally modeled as a Lyapunov functional that monitors system invariants, ensuring operations remain within predefined safety bounds. Acts as a cryptographic boundary for runtime governance.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🔄</div>
+                    <h3>Correction Loop</h3>
+                    <p>An iterative feedback mechanism driving the system's state toward a desired attractor. Implemented via automated CI/CD pipelines (GitHub Actions) and Human-in-the-Loop (HITL) oversight, ensuring continuous alignment with safety policies.</p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">📊</div>
+                    <h3>MSE Validation</h3>
+                    <p>Mean Squared Error serves as the primary empirical metric, quantifying the average squared difference between predicted and actual system behavior. Augmented with Lyapunov regularization to ensure learned dynamics remain intrinsically stable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mathematical Foundations -->
+    <section id="math">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Mathematical Foundations</h2>
+                <p>The rigorous formalisms underpinning both neurobiological optimization and system stability.</p>
+            </div>
+            <div class="math-grid">
+                <div class="math-card fade-in">
+                    <h3>Langevin Equation</h3>
+                    <div class="equation">dx/dt = -dΦ(x)/dx + ξ(t)</div>
+                    <p>Models cognitive state evolution where Φ(x) is the potential energy function (energy landscape) and ξ(t) represents stochastic neural noise. Meditation reshapes Φ(x) to deepen desirable attractor wells.</p>
+                </div>
+                <div class="math-card fade-in">
+                    <h3>Lyapunov Stability</h3>
+                    <div class="equation">V(x) > 0, dV/dt ≤ 0</div>
+                    <p>A system is stable if a positive-definite Lyapunov function V(x) decreases along trajectories. LaSalle's invariance principle extends this to negative semi-definite cases, guaranteeing convergence to the largest invariant set.</p>
+                </div>
+                <div class="math-card fade-in">
+                    <h3>Hebbian Synaptic Update</h3>
+                    <div class="equation">Δwij = η · xi · xj</div>
+                    <p>Formalizes "neurons that fire together, wire together." Refined by Spike-Timing-Dependent Plasticity (STDP) for millisecond-level temporal specificity in synaptic strengthening.</p>
+                </div>
+                <div class="math-card fade-in">
+                    <h3>Koopman Operator</h3>
+                    <div class="equation">U_t g(x) = g(F_t(x))</div>
+                    <p>Linearizes nonlinear brain dynamics in a high-dimensional space of observables. Enables predictive generative modeling of cognitive state evolution without requiring explicit biophysical equations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Pure Science Protocol: Universal Manifold Interaction</p>
+            <p>A unified framework for neurobiological state control and verifiable system governance.</p>
+            <p>
+                <a href="https://github.com/hjk-inc/Pure-Science-protocol-universal-mainfold-interaction-" target="_blank">
+                    github.com/hjk-inc/Pure-Science-protocol-universal-mainfold-interaction-
+                </a>
+            </p>
+            <p style="margin-top: 2rem; font-size: 0.8rem;">© 2026 HJK Inc. All rights reserved. Built on rigorous scientific principles.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 15, 28, 0.98)';
+            } else {
+                nav.style.background = 'rgba(10, 15, 28, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
